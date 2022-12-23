@@ -82,7 +82,7 @@ ax2.legend()
 plt.title('Top 5 Median Rent', loc='left')
 
 st.pyplot(fig)
-
+st.markdown("The overall trends show rent prices varying a lot within a year but continuing to go up over time. In the Top 5 Median Rent cities, we can see a significant drop around 2020/2021, which marks the effect of COVID-19 policies. However, we do not see as drastic an effect for the less expensive cities.")
 
 st.header('Other Data to Add Context')
 st.markdown("To get a better idea of factors that might contribute to the median rent price, let's take a look at the population size and location of each city.")
@@ -93,12 +93,13 @@ st.markdown("""---""")
 
 st.header('Some Plots')
 st.plotly_chart(px.scatter(rent_pop_2022, x="oct_22_rent", y="pop2022", title='Median Rent by Population Size'))
-st.plotly_chart(px.scatter(rent_loc, x="lng", y="oct_22_rent", size="pop2022", color="name", title='Median Rent by Longitude and Population'))
+st.plotly_chart(px.scatter(rent_loc, x="lng", y="lat", size="pop2022", color="oct_22_rent", title='Median Rent by Longitude and Population'))
 st.markdown("This chart plots the longitude, or east/west coordinate, of each city on the x-axis and the median rent price on the y-axis, with the size of the bubble reflecting the population size of the city. Overall, rent prices tend to be higher along the coasts and lower in central US cities, even for central cities with similar population size to coastal cities.")
 st.markdown("""---""")
 
 rent_pop_corr = rent_pop_2022[['oct_22_rent', 'pop2022']].corr()
 
+st.write('Correlation Matrix for Median Rent and Population Size')
 st.dataframe(rent_pop_corr)
 st.markdown("There does appear to be a correlation bewteen population size and median rent price, but it appears somewhat weak.")
 st.markdown("""---""")
@@ -113,5 +114,5 @@ st.markdown("""---""")
 
 #Always good to section out your code for readability.
 st.header('Conclusions')
-st.markdown('- **Data Science is Fun!**')
-st.markdown('- **The [Streamlit Cheatsheet](https://docs.streamlit.io/library/cheatsheet) is really useful.**')
+st.markdown('Although there is a wide variety in actual rent prices across different cities based on location and population, and other factors, overall rent prices will trend upwards across the years.')
+st.markdown('Rent prices are more affected by situational factors in cities with higher median rent prices.')
