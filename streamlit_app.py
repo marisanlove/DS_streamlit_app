@@ -92,7 +92,6 @@ col2.dataframe(location.head())
 st.markdown("""---""")
 
 st.header('Some Plots')
-st.plotly_chart(px.histogram(example_data, x="C"))
 st.plotly_chart(px.scatter(rent_pop_2022, x="oct_22_rent", y="pop2022", title='Median Rent by Population Size'))
 st.plotly_chart(px.scatter(rent_loc, x="lng", y="oct_22_rent", size="pop2022", color="name", title='Median Rent by Longitude and Population'))
 st.markdown("This chart plots the longitude, or east/west coordinate, of each city on the x-axis and the median rent price on the y-axis, with the size of the bubble reflecting the population size of the city. Overall, rent prices tend to be higher along the coasts and lower in central US cities, even for central cities with similar population size to coastal cities.")
