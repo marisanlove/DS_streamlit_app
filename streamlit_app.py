@@ -3,6 +3,8 @@ import pandas as pd
 import plotly.express as px
 import numpy as np
 import streamlit as st
+import matplotlib as mpl
+import matplotlib.pyplot as plt
 
 #TODO: reading in the dataset
 median_rent = pd.read_excel('Rent_Data_October2022.xlsx', sheet_name = 0)
